@@ -1,0 +1,2 @@
+Hourly
+Salary
