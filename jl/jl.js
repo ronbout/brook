@@ -228,7 +228,7 @@ function jlDispApply( dataObj ) {
 		$(this).removeAttr("style"),
 		$(e.target).hasClass("indeed-apply-button") && ($(".indeed-apply-button-label").text("Apply via  "),
 		$(".indeed-apply-button-inner").attr("style", "background-image: none !important"),
-		$(".indeed-apply-button-cm img").attr("src", "http://www.brookdalecareers.com/wp-content/themes/genesis-sample/images/logo-indeed.png"));
+		$(".indeed-apply-button-cm img").attr("src", "http://localhost/brook/wp-content/themes/genesis-sample/images/logo-indeed.png"));
 	});
 	loadIndeedButton();
 	// we are done, use timer to wait for Indeed Btn and then show box
@@ -351,8 +351,8 @@ function jlAjaxLoadJobs( args, filterFlg, detailFlag, src) {
 					}
 					/****** TEST OF GOOGLE ANALYTICS ****/
 					if (typeof ga === 'function') {
-						ga('set', 'page', newURL);
-						ga('send', 'pageview');
+						//ga('set', 'page', newURL);
+					//	ga('send', 'pageview');
 					}
 				} else {
 					// use the replace state so that we can store the current state in the browser history
@@ -693,8 +693,8 @@ function jlLoadJobDetail( btn, updateURL ) {
 		}
 		/****** TEST OF GOOGLE ANALYTICS ****/
 		if (typeof ga === 'function') {
-			ga('set', 'page', newURL);
-			ga('send', 'pageview');
+			//ga('set', 'page', newURL);
+			//ga('send', 'pageview');
 		}
 	} else {
 		// use the replace state so that we can store the current state in the browser history
@@ -874,7 +874,7 @@ function jlRemoveMobileHover() {
 }
 /*function jlSetUpGoogleApis() {
 	gapi.load('client', function () {
-		gapi.client.setApiKey('AIzaSyAQc1y6PJOFyWtZiJIRNVop-8I825rKAvs');
+		gapi.client.setApiKey('xxx');
 		gapi.client.load('urlshortener', 'v1');
 	});
 }*/

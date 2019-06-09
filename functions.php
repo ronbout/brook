@@ -140,36 +140,5 @@ function b3m_search_button_text( $text ) {
 }
 add_filter( 'genesis_search_button_text', 'b3m_search_button_text' );
 
-
-/*
- * This is put here by the brookdale.com paid marketing team to 
- * be able to exclude people looking for careers from ads.
- */
-function brookdale_ppc_google_remarketing_tag() {
-
-            ?>
-            <!-- Google Code for BrookdaleCareers.com Job Seekers -->
-			<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
-			<script type="text/javascript">
-			/* <![CDATA[ */
-			var google_conversion_id = 1056127387;
-			var google_conversion_label = "RrG7CNXugWQQm_PM9wM";
-			var google_custom_params = window.google_tag_params;
-			var google_remarketing_only = true;
-			/* ]]> */
-			</script>
-			<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-			</script>
-			<noscript>
-			<div style="display:inline;">
-			<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1056127387/?value=1.00&amp;currency_code=USD&amp;label=RrG7CNXugWQQm_PM9wM&amp;guid=ON&amp;script=0"/>
-			</div>
-			</noscript>
-
-            <?php
-    
-}
-add_action('wp_footer', 'brookdale_ppc_google_remarketing_tag');
-
 //* incude job listings functions
 include_once(get_stylesheet_directory().'/jl/jl_functions.php');

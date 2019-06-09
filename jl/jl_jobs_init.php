@@ -168,8 +168,8 @@ function jl_load_resources() {
 	
 	if ( $post->post_name == 'jobs' ) {
 		wp_enqueue_style( 'styling', get_stylesheet_directory_uri() . '/jl/styles.css' );
-		//wp_enqueue_script( 'jl-js', get_stylesheet_directory_uri() . '/jl/jl.js', array( 'jquery', 'jquery-ui-core' ), false, false);
-		wp_enqueue_script( 'jl-js', get_stylesheet_directory_uri() . '/jl/jl.min.js', array( 'jquery', 'jquery-ui-core' ), false, false);
+		wp_enqueue_script( 'jl-js', get_stylesheet_directory_uri() . '/jl/jl.js', array( 'jquery', 'jquery-ui-core' ), false, false);
+		//wp_enqueue_script( 'jl-js', get_stylesheet_directory_uri() . '/jl/jl.min.js', array( 'jquery', 'jquery-ui-core' ), false, false);
 		// add code to include the google js api's for shortlinks
 		//wp_enqueue_script('google-js-apis', 'https://apis.google.com/js/api.js', array(), false, true);
 

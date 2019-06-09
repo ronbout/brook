@@ -7,6 +7,13 @@
  *				pages that are currently available in this system.
  */
 
+/**
+ * 
+ * the site is down.  This is just a demo site now
+ * this code should not run
+ * 
+ */
+exit();
  // give large time limit as it might be awhile
 set_time_limit(60 * 30);
 
@@ -58,7 +65,7 @@ $date 		= date('m-d-y  H:i:s');
 $logdata 	= $date . '   Generated jobs-sitemap.xml' . "\n";
 file_put_contents($logname, $logdata, FILE_APPEND);
 
-
+/*
 // if this is the brookdale live site, send a GET request to Google
 // informing them of the sitemap update
 if (strtolower($_SERVER['HTTP_HOST']) == 'www.brookdalecareers.com') {
@@ -66,6 +73,7 @@ if (strtolower($_SERVER['HTTP_HOST']) == 'www.brookdalecareers.com') {
 	$google_url = 'http://www.google.com/ping?sitemap=http://www.brookdalecareers.com/sitemap_index.xml';
 	curl_load_file( $google_url, '', false );
 } 
+*/
 
 ////////////////////////////////////////////////////////
 

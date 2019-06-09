@@ -356,6 +356,7 @@ function build_post_string( $post_array ) {
 
 function get_jobs_api( $srch_args ) {
 
+	/*
 	$jobs_url = 'https://career.StaffingSoft.com/careers/ssjobsapi.ashx';
 	
 	$access_data = array(
@@ -367,9 +368,6 @@ function get_jobs_api( $srch_args ) {
 
 	$post_data = array_merge($srch_args, $access_data);
 	$post_string = build_post_string($post_data);
-	
-//echo '<pre><h1>'.var_dump($post_data).'</h1></pre><br>';	
-//echo '<pre><h1>'.var_dump($post_string).'</h1></pre>';
 	
 	$jobs_string =  curl_load_file($jobs_url, $post_string );
 
@@ -384,7 +382,19 @@ function get_jobs_api( $srch_args ) {
 		// write out count to daily error log
 		write_daily_errors();
 	}
-	
+*/
+
+/**
+ * 
+ * The site is no longer up.  Brookdale changed their ATS system to icims.
+ * For a demo of the old site, I need to pull in a static jobs xml file.
+ * 
+ */
+
+ 	$jobs_file = get_stylesheet_directory().'/xml/jobs.xml';
+
+	$jobs_xml = simplexml_load_file($jobs_file);
+
 	return $jobs_xml;
 }
 
