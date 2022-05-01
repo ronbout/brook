@@ -20,13 +20,11 @@
 
 function get_taste_jobs($get_string) {
 
+  $url ='http://localhost/taste_jobs/wp-json/rlbjobs/v1/jobfilter';
 
-  $url ='http://10.0.0.78/taste_jobs/wp-json/rlbjobs/v1/jobfilter';
+  $url =  $url . "?" . $get_string;
 
-  echo $url . "?" . $get_string;
-  die();
-
-  $jobs_json = curl_load_file( $url, $get_string );
+  $jobs_json = curl_load_file( $url );
 
   $jobs = json_decode($jobs_json, true);
 
@@ -36,7 +34,7 @@ function get_taste_jobs($get_string) {
 
 }
 
-function curl_load_file( $url, $get_string ) {
+function curl_load_file( $url ) {
   // create curl resource
  $ch = curl_init();
 
@@ -55,11 +53,16 @@ function curl_load_file( $url, $get_string ) {
  // curl_setopt($ch, CURLOPT_POSTFIELDS, $get_string );
  
  // set up http header fields
+//  $headers = array(
+//    'Accept: application/json',
+//    'Pragma: no-cache',
+//    'Content-Type: application/x-www-form-urlencoded',
+//    'Content-Length: '. strlen($get_string),
+//    'Connection: keep-alive'
+//  );
+ // set up http header fields
  $headers = array(
    'Accept: application/json',
-   'Pragma: no-cache',
-   'Content-Type: application/x-www-form-urlencoded',
-   'Content-Length: '. strlen($get_string),
    'Connection: keep-alive'
  );
  
