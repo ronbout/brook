@@ -193,9 +193,11 @@ function load_jobs_array( $jobs, $src = 'BSLC', $pg = 1, $jobs_page = 10, $detai
 	
 	if ( $job_cnt > $job_start ) {
 		for ( $i = 0 ; ($i <  $jobs_page) && ($i < $job_cnt) ; $i++ ) {
-			$job_img = (string) $jobs->job[$i]->JobImageURL;
+			// $job_img = (string) $jobs->job[$i]->JobImageURL;
+			$job_img = $job_img_default;
 			$job_vid = (string) $jobs->job[$i]->JobVideoURL;
 			$loc_img = (string) $jobs->job[$i]->CommunityImageURL;
+			$loc_img = $loc_img_default;
 			// check that images actually exist or give default
 	/******* since the images are only on the actual server, I cannot test for the image until install  ******/
 	/******* bad images will just have to not display for now  ******/
@@ -294,6 +296,7 @@ function getYouTubeId( $url ) {
 	return '';
 }
 
+/*
 function curl_load_file( $url, $post_string ) {
 	 // create curl resource
 	$ch = curl_init();
@@ -308,13 +311,13 @@ function curl_load_file( $url, $post_string ) {
 
 	curl_setopt($ch, CURLOPT_USERAGENT, 'Jobs');
 	
-	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POST, 0);
 	
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $post_string );
+	// curl_setopt($ch, CURLOPT_POSTFIELDS, $post_string );
 	
 	// set up http header fields
 	$headers = array(
-		'Accept: text/xml',
+		'Accept: application/json',
 		'Pragma: no-cache',
 		'Content-Type: application/x-www-form-urlencoded',
 		'Content-Length: '. strlen($post_string),
@@ -333,8 +336,9 @@ function curl_load_file( $url, $post_string ) {
 
 	return $output;
 }
+*/
 
-function build_post_string( $post_array ) {
+function build_get_string( $post_array ) {
 	if( ! is_array($post_array) ) {
 		return false;
 	}
@@ -367,7 +371,7 @@ function get_jobs_api( $srch_args ) {
 	);
 
 	$post_data = array_merge($srch_args, $access_data);
-	$post_string = build_post_string($post_data);
+	$post_string = build_get_string($post_data);
 	
 	$jobs_string =  curl_load_file($jobs_url, $post_string );
 
@@ -391,9 +395,15 @@ function get_jobs_api( $srch_args ) {
  * 
  */
 
- 	$jobs_file = get_stylesheet_directory().'/xml/jobs.xml';
+	include_once(get_stylesheet_directory().'/jl/get_taste_jobs.php');
+	
+	$get_string = build_get_string($srch_args);
 
-	$jobs_xml = simplexml_load_file($jobs_file);
+	$jobs_array = get_taste_jobs( $get_string);
+
+ 	// $jobs_file = get_stylesheet_directory().'/xml/jobs.xml';
+
+	// $jobs_xml = simplexml_load_file($jobs_file);
 
 	return $jobs_xml;
 }
