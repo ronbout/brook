@@ -13,6 +13,7 @@ function jl_job_listing () {
 	}
 	
 	include_once(get_stylesheet_directory().'/jl/jl_get_job_listing.php');
+	include_once(get_stylesheet_directory().'/jl/get_taste_jobs.php');
 	extract($_POST);
 	
 	$zip_pattern = '/^[0-9]{5}(?:-[0-9]{4})?$/';
@@ -78,7 +79,7 @@ function jl_job_listing () {
 	//$t1 = microtime();
 	// have to convert detail_flag from string to boolean
 	$detail_flag = $detail_flag === 'false' ? false : true;
-	echo  build_jobs_html ( $args, $src, $detail_flag );
+	echo  build_taste_jobs_html ( $args, $src, $detail_flag );
 	//$t2 = microtime();
 	//if (false) {
 	//	error_log( ($t2-$t1) . " get_jobs_api\n", 3, 'timing.log');

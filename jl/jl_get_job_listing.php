@@ -395,15 +395,12 @@ function get_jobs_api( $srch_args ) {
  * 
  */
 
-	include_once(get_stylesheet_directory().'/jl/get_taste_jobs.php');
 	
-	$get_string = build_get_string($srch_args);
+	// $get_string = build_get_string($srch_args);
 
-	$jobs_array = get_taste_jobs( $get_string);
+ 	$jobs_file = get_stylesheet_directory().'/xml/jobs.xml';
 
- 	// $jobs_file = get_stylesheet_directory().'/xml/jobs.xml';
-
-	// $jobs_xml = simplexml_load_file($jobs_file);
+	$jobs_xml = simplexml_load_file($jobs_file);
 
 	return $jobs_xml;
 }
