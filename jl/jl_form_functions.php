@@ -12,6 +12,7 @@ define('LOCATION_FILE', get_stylesheet_directory().'/resources/jl_locations.php'
 define('EXPERIENCE_FILE', get_stylesheet_directory().'/resources/jl_experience.php' );
 define('JOBTYPE_FILE', get_stylesheet_directory().'/resources/jl_job_type.php' );
 define('JOBCLASS_FILE', get_stylesheet_directory().'/resources/jl_job_class.php' );
+define('JOBSALARY_FILE', get_stylesheet_directory().'/resources/jl_salary_ranges.php' );
 define('OFFICETYPE_FILE', get_stylesheet_directory().'/resources/jl_office_type.php' );
 define('DEPTCODE_FILE', get_stylesheet_directory().'/resources/jl_dept_code.php' );
 define('STATE_FILE', get_stylesheet_directory().'/resources/jl_states.txt' );
@@ -86,6 +87,10 @@ function jl_get_experience() {
 	jl_load_checkboxes( EXPERIENCE_FILE, 'experiencelevel', 'jl-check-item' );
 }
 
+function jl_get_salary() {
+	jl_load_checkboxes( JOBSALARY_FILE, 'salaryrange', 'jl-check-item' );
+}
+
 function jl_get_job_type() {
 	jl_load_checkboxes( JOBTYPE_FILE, 'jobtype', 'jl-check-item' );
 }
@@ -108,4 +113,27 @@ function jl_get_dept_code() {
 
 function jl_get_categories() {
 	jl_load_checkboxes( CATEGORY_FILE, 'clientcategory', 'jl-check-item' );
+}
+
+function jl_get_companies() {
+	$url ='http://localhost/taste_jobs/wp-json/rlbjobs/v1/jobcompanies';
+
+  $job_companies_json = curl_load_file( $url );
+
+  $job_companies = json_decode($job_companies_json, true)['companies'];
+
+	$classname = 'jl-check-item';
+
+	foreach ( $job_companies as $i => $company_info ) {
+		$company_name = $company_info['company_name'];
+		$company_cnt = $company_info['company_job_cnt'];
+		$checkname = str_replace(' ', '-', $company_name);
+			echo '<li class="checkmark-li">
+					<div class="checkMark">
+						<input type="checkbox" id="' . $checkname . $i . '" name="company" value="' . $company_name . '" class="' . $classname . '">
+						<label for="' . $checkname . $i . '"></label>
+					</div> 
+					' . $company_name . '  ' . "($company_cnt jobs)" . '
+				</li>';
+	}
 }
