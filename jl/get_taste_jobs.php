@@ -24,8 +24,8 @@ function get_taste_jobs($get_string) {
 
   $url =  $url . "?" . $get_string;
 
-  echo $url;
-  die();
+  // echo $url;
+  // die();
 
   $jobs_json = curl_load_file( $url );
 
