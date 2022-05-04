@@ -8,7 +8,8 @@ date_default_timezone_set('America/Chicago');
  * whether it is from cached xml file or api calls to staffingsoft
  */
 
-include_once(get_stylesheet_directory().'/jl/jl_job_detail_page.php');
+// include_once(get_stylesheet_directory().'/jl/jl_job_detail_page.php');
+include_once(get_stylesheet_directory().'/jl/jl_taste_job_detail_page.php');
 
 function build_jobs_html ( $srch_args = array(), $src = 'BSLC', $detail_flag = false) {
 	// $search contains search criteria

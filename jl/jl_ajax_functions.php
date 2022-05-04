@@ -80,6 +80,7 @@ function jl_job_listing () {
 	// have to convert detail_flag from string to boolean
 	$detail_flag = $detail_flag === 'false' ? false : true;
 	echo  build_taste_jobs_html ( $args, $src, $detail_flag );
+	// echo  build_jobs_html ( $args, $src, $detail_flag );
 	//$t2 = microtime();
 	//if (false) {
 	//	error_log( ($t2-$t1) . " get_jobs_api\n", 3, 'timing.log');
