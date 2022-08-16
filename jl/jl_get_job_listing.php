@@ -201,8 +201,9 @@ function load_jobs_array( $jobs, $src = 'BSLC', $pg = 1, $jobs_page = 10, $detai
 	/******* bad images will just have to not display for now  ******/
 			//$job_img = (empty($job_img) || ! file_exists($uploads_dir . explode('uploads',$job_img)[1])) ? $job_img_default : $job_img;
 			//$loc_img = (empty($loc_img) || ! file_exists($uploads_dir . explode('uploads',$loc_img)[1])) ? $loc_img_default : $loc_img;
-			$job_img = (empty($job_img) ) ? $job_img_default : $job_img;
+			// $job_img = (empty($job_img) ) ? $job_img_default : $job_img;
 			$loc_img = (empty($loc_img) ) ? $loc_img_default : $loc_img;
+			$job_img = $job_img_default;
 			// retrieve the youtube video id
 			$vid_id = getYouTubeId($job_vid);
 			$job_vid = (empty($job_vid) || empty($vid_id)) ? $job_vid_default : $vid_id;
