@@ -6,6 +6,7 @@
  */
 
 function jl_job_listing () {
+	die('here?');
 	// check security nonce
 	if (!check_ajax_referer('jl_ajax_nonce','security', false)) {
 		echo '<h2>Security error loading data.  <br>Please Refresh the page and try again.</h2>';
