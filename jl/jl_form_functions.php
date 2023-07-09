@@ -116,7 +116,7 @@ function jl_get_categories() {
 }
 
 function jl_get_companies() {
-	$url ='http://localhost/taste_jobs/wp-json/rlbjobs/v1/jobcompanies';
+	$url ='http://localhost/taste/wp-json/rlbjobs/v1/jobcompanies';
 
   $job_companies_json = curl_load_file( $url );
 

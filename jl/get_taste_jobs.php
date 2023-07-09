@@ -20,7 +20,7 @@
 
 function get_taste_jobs($get_string) {
 
-  $url ='http://localhost/taste_jobs/wp-json/rlbjobs/v1/jobfilter';
+  $url ='http://localhost/taste/wp-json/rlbjobs/v1/jobfilter';
 
   $url =  $url . "?" . $get_string;
 
